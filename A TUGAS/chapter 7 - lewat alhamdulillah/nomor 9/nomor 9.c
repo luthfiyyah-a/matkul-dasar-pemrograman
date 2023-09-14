@@ -1,0 +1,238 @@
+
+/* Ditulis oleh:
+Nrp: 5025201090
+Nama: luthifyyah hanifah amari
+*/
+
+/* Tanggal:
+Pembuatan: 5 desember 2020
+modifikasi : 6 desember 2020
+*/
+
+/* Problem: Idenifikasi program apa yang akan diselesaikan */
+/*
+- membuat program interaktif yang main permainan hangman.
+- program menyimpan kata untuk ditebak ke dalam elemen array yang berurutan dari karakter individu; nama arraynya = word
+- pemain (user) harus menebak huruf yang ada di array "word"
+- Program harus berhenti jika :
+	semua huruf telah ditebak dengan benar (pemain menang) atau 
+	sejumlah tebakan yang salah telah dibuat (komputer menang)
+- Petunjuk: Gunakan array lain, "guessed", untuk melacak solusi sejauh ini
+- Setiap saat huruf dalam kata ditebak, ganti '*' yang sesuai dengan tebakan huruf itu
+*/
+
+/*Analysis: Berisi analisa bagaimana cara menyelesaikan problem yang ada */
+/*
+- membuat array word sebagai tempat menyimpan kata untuk ditebak di elemen array yang berururtan
+- pemain / user menebak huruf melalui input huruf , lalu mencocokkan dengan data yang ada di array. (menggunakan loop dan if)
+	huruf inputan dijadikan kapital dengan memakai fungsi toupper.
+- user diberi 20 kesempatan untuk menebak
+- jika semua huruf ditebak dengan benar, maka program menampilkan pernyataan yang memberi tahu bahwa user menang, dan program berakhir
+- jika kesempatan habis maka user kalah, maka program berakhir
+*/
+
+/* Data Requirements : Menjelaskan data-data apa saja yang diperlukan untuk menyelesaikan problem */
+
+//Problem Inputs:
+//	char word[11]; // input - dari pemrogram
+//	char tebakan; // input - huruf yang ditebak user
+
+//Problem Outputs:
+//	int kesempatan; // output - kesempatan untuk menebak
+//	char guessed[11]; // output - tampilan * ataupun huruf kepada user
+	
+//Program Variables:
+//	int i; // variabel - pada loop
+
+
+/*DESIGN
+Initial Algorithm:
+
+1.	menulis fungsi utama
+2.	inisialisasi variabel-variabel yang digunakan.
+3.	program menampilkan tampilan pembuka
+4.	inisialisasi array guessed
+5.	memakai loop selama kesempatan menebak belum habis dan selama huruf belum ditebak semua oleh user
+6.	menampilkan karakter '*' untuk huruf yang belum ditebak dan karakter huruf asli untuk karakter yang sudah benar ditebak
+7.	menampilkan kesempatan user menebak.
+8.	mengambil input tebakan dari user.
+9.	mengecek apakah huruf tebakan user benar.
+10.	setiap loop, kesempatan berkurang 1.	
+11.	jika huruf telah berhasil ditebak semua, maka user menang dan kesempatan menjadi 0,
+12.	lalu keluar dari loop, dengan nabtuan memanggil fungsi.
+13.	menampilkan huruf sesungguhnya kepada user.	
+14.	menampilkan akhir dari permainan.
+15.	mengembalikan nilai menjadi 0.
+16.	membuat fungsi tambahan yang dipanggil untuk mengecek apakah semua huruf telah berhasil ditebak
+
+
+Step 3 refinement /*di sini di data, hal apa saja yang anda perbaiki dari algoritma anda, dan apa perbaikannya*/
+//tidak ada
+
+/*IMPLEMENTATION
+
+
+// fungsi tambahan dipanggil untuk mengecek apakah semua huruf telah berhasil ditebak
+int apakah_menang(const int guessed[], int kesempatan){
+	
+	// inisialisasi variabel fungsi lokal, dengan pernyataan sebagai berikut
+	int i;
+	
+	// mengecek apakah huruf sudah berhasil ditebak, dengan pernyataan sebagai berikut
+	for(i=0; i<11; i++){
+		if(guessed[i] != '*') return kesempatan;
+	}
+	
+	printf("selamat anda menang!")
+	return 0;
+}
+
+// menulis fungsi utama, dengan pernyataan sebagai berikut
+int main(){
+	
+	//inisialisasi variabel-variabel yang digunakan, dengan pernyataan sebagai berikut
+	char word[11] = {'I', 'N', 'F', 'O', 'R', 'M', 'A', 'T', 'I', 'K', 'A'}; // input - dari pemrogram
+	char tebakan; // input - huruf yang ditebak user
+	int kesempatan = 20; // output - kesempatan untuk menebak
+	char guessed[11]; // output - tampilan * ataupun huruf kepada user
+	int i; // variabel - pada loop
+	
+	// program menampilkan tampilan pembuka, dengan pernyataan sebagai berikut
+	printf("halo! selamat datang di permainan hangman sederhana !\n selamat bermaiinn\n sstt, btw anda hanya diberi 20 kali kesempatan menebak/n");
+	
+	// inisialisasi array guessed, dengan pernyataan sebagai berikut
+	for(i=0; i<11; i++){
+	guessed [i] = '*';
+	}
+	
+	// memakai loop selama kesempatan menebak belum habis dan selama huruf belum ditebak semua oleh user, dengan pernyataan sebagai berikut
+	while (kesempatan != 0){
+	
+	// menampilkan karakter '*' untuk huruf yang belum ditebak dan karakter huruf asli untuk karakter yang sudah benar ditebak, dengan pernyataan sebagai berikut
+	for(i=0; i<11; i++){
+		printf("%c ", guessed [i]) ;
+	}
+	
+	// menampilkan kesempatan user menebak, dengan pernyataan sebagai berikut
+	printf("\n\nkesempatan menebak : %d", kesempatan);
+	
+	// mengambil input tebakan dari user, dengan pernyataan sebagai berikut
+	printf("\nmasukkan huruf tebakan anda : ");
+	scanf("%c", &tebakan);
+	
+	// mengecek apakah huruf tebakan user benar, dengan pernyataan sebagai berikut
+	for(i=0; i<12; i++){
+		if( toupper(tebakan) == word[i] ){
+			printf("\ntebakan anda benar\n\n");
+			guessed[i] == word[i];
+		}
+	}
+	
+	// setiap loop, kesempatan berkurang 1, dengan pernyataan sebagai berikut
+	kesempatan -= 1;
+	
+	// jika huruf telah berhasil ditebak semua, maka user menang dan kesempatan menjadi 0,
+	// lalu keluar dari loop, dengan nabtuan memanggil fungsi, dengan pernyataan sebagai berikut
+	kesempatan = apakah_menang(guessed, kesempatan);
+	}
+	
+	// menampilkan huruf sesungguhnya kepada user, dengan pernyataan sebagai berikut
+	printf("kata sesungguhnya : \n")
+	for(i=0; i<11; i++){
+		printf("%c", word[i]);
+	}
+	
+	// menampilkan akhir dari permainan, dengan pernyataan sebagai berikut
+	printf("\n\tpermainan selesai ^_^\n terima kasih telah bermain");
+
+	// mengembalikan nilai menjadi 0, dengan pernyataan sebagai berikut
+	return 0;
+}
+
+*/
+
+
+#include <stdio.h>
+#include <ctype.h>
+
+// prototype fungsi
+int apakah_menang();
+
+int main(){
+	
+	char word[11] = {'I', 'N', 'F', 'O', 'R', 'M', 'A', 'T', 'I', 'K', 'A'}; // input - dari pemrogram
+	char tebakan; // input - huruf yang ditebak user
+	int kesempatan = 20; // output - kesempatan untuk menebak
+	char guessed[11]; // output - tampilan * ataupun huruf kepada user
+	int i; // variabel - pada loop
+	
+	// program menampilkan tampilan pembuka
+	printf("halo! selamat datang di permainan hangman sederhana !\n selamat bermaiinn\n sstt, btw anda hanya diberi 20 kali kesempatan menebak/n");
+	
+	// inisialisasi array guessed
+	for(i=0; i<11; i++){
+	guessed [i] = '*';
+	}
+	
+	// tampilan inti permainan
+	
+	// memakai loop selama kesempatan menebak belum habis dan selama huruf belum ditebak semua oleh user
+	while (kesempatan != 0){
+	
+	// menampilkan karakter '*' untuk huruf yang belum ditebak dan karakter huruf asli untuk karakter yang sudah benar ditebak
+	for(i=0; i<11; i++){
+		printf("%c ", guessed [i]) ;
+	}
+	
+	// menampilkan kesempatan user menebak
+	printf("\n\nkesempatan menebak : %d", kesempatan);
+	
+	// mengambil input tebakan dari user
+	printf("\nmasukkan huruf tebakan anda : ");
+	getchar();
+	scanf("%c", &tebakan);
+	
+	// mengecek apakah huruf tebakan user benar
+	for(i=0; i<12; i++){
+		if( toupper(tebakan) == word[i] ){
+			printf("\ntebakan anda benar\n\n");
+			guessed[i] == word[i];
+		}
+	}
+	
+	// setiap loop, kesempatan berkurang 1
+	kesempatan -= 1;
+	
+	// jika huruf telah berhasil ditebak semua, maka user menang dan kesempatan menjadi 0,
+	// lalu keluar dari loop, dengan nabtuan memanggil fungsi
+	kesempatan = apakah_menang(guessed, kesempatan);
+	}
+	
+	// menampilkan huruf sesungguhnya kepada user
+	printf("kata sesungguhnya : \n");
+	for(i=0; i<11; i++){
+		printf("%c", word[i]);
+	}
+	
+	// menampilkan akhir dari permainan
+	printf("\n\tpermainan selesai ^_^\n terima kasih telah bermain");
+	return 0;
+}
+
+// fungsi yang dipanggil untuk mengecek apakah semua huruf telah berhasil ditebak
+int apakah_menang(const int guessed[], int kesempatan){
+	
+	int i;
+	for(i=0; i<11; i++){
+		if(guessed[i] != '*') return kesempatan;
+	}
+	printf("selamat anda menang!");
+	return 0;
+}
+
+/*
+
+
+TESTING
+mohon maaf, pak... program saya gagal...
+*/

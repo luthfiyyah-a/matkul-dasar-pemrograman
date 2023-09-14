@@ -1,0 +1,37 @@
+# Project: chapter_11_SC
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o display_match.o data.o dokumentasi.o get_params_2.o
+LINKOBJ  = main.o display_match.o data.o dokumentasi.o get_params_2.o
+LIBS     = -L"D:/Downloads/Dev-Cpp/MinGW64/lib" -L"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = chapter_11_SC.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+display_match.o: display_match.c
+	$(CC) -c display_match.c -o display_match.o $(CFLAGS)
+
+dokumentasi.o: dokumentasi.c
+	$(CC) -c dokumentasi.c -o dokumentasi.o $(CFLAGS)
+
+get_params_2.o: get_params_2.c
+	$(CC) -c get_params_2.c -o get_params_2.o $(CFLAGS)

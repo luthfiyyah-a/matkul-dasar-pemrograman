@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+
+int main()
+{
+    int days;
+    int kasus;
+    printf("Masukkan hari:");
+    scanf("%d",&days);
+
+    kasus= 40000 / (1+(39999 * exp(-0.24681*days)));
+
+    printf("Pada hari ke %d, total kasus diprekdisi menjadi %d kasus",days,kasus);
+    return 0;
+}

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1617546157 source:d:\kuliah\struktur data\1. tugas\pertemuan 2\5025201090_exercise_5\5. p5.6 dengan integer operand - belum selesai\main.c
+	<stdio.h>
+	<ctype.h>
+	"stack P5.6.h"
+
+1617543874 d:\kuliah\struktur data\1. tugas\pertemuan 2\5025201090_exercise_5\5. p5.6 dengan integer operand - belum selesai\stack p5.6.h
+	<stdlib.h>
+

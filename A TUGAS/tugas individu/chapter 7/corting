@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*
+ * Temukan posisi elemen terkecil dalam subarray
+ * list[first] ke list[last]
+ * Pre: first<last dan elemen 0 sampai elemen terakhir terdefinisi
+ * Post: Kembalikan subscript k dari elemen terkecil dalam subarray
+ *  i.e., list[k] <= list[i] untuk semua i dalam subarray
+
+ * Urutkan data dalam list array
+ * Pre: n elemen pertama dari list terdefinisi dan n>=0
+ */
+ void select_sort(int list[],   //input/output - array yang diurutkan
+                  int n)        // input - banyaknya elemen yang akan diurutkan
+{
+    int j,fill;       // index dari element pertama dalam subarray yang belum diurutkan
+    int temp;       // variabel pembantu
+    int index_of_min; //subscript dari elemen terkecil selanjutnya
+    for(fill=0;fill<n-1;++fill){
+        /* Temukan posisi dari elemen terkecil dalam subarray yang belum urut*/
+        index_of_min = fill;
+            for(j=fill+1;j<n;j++){
+                if(list[j]<list[index_of_min]) index_of_min = j;
+            }
+
+        /*Tukar elemen pada fill dan index_of_min*/
+
+        if(fill!=index_of_min){
+            temp = list[index_of_min];
+            list[index_of_min]= list[fill];
+            list[fill] = temp;
+        }
+    }
+}
+int main()
+{
+    int a, i;
+    printf("Banyaknya angka:");
+    scanf("%d",&a);
+    int nums[a];
+    printf("Masukkan angka untuk diurutkan dari terkecil hingga terbesar:");
+    for(i=0;i<a;i++) scanf("%d",&nums[i]);
+    select_sort(nums,a);
+    for(i=0;i<a;i++){
+        printf("%d\n",nums[i]);
+    }
+    return 0;
+}

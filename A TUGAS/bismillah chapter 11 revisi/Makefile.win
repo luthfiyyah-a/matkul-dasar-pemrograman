@@ -1,0 +1,43 @@
+# Project: bismillah chapter 11 ayooo semangaat
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o dokumentasi.o get_params.o display_match.o menu_choose.o match.o
+LINKOBJ  = main.o dokumentasi.o get_params.o display_match.o menu_choose.o match.o
+LIBS     = -L"D:/Downloads/Dev-Cpp/MinGW64/lib" -L"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "bismillah chapter 11 ayooo semangaat.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+dokumentasi.o: dokumentasi.c
+	$(CC) -c dokumentasi.c -o dokumentasi.o $(CFLAGS)
+
+get_params.o: get_params.c
+	$(CC) -c get_params.c -o get_params.o $(CFLAGS)
+
+display_match.o: display_match.c
+	$(CC) -c display_match.c -o display_match.o $(CFLAGS)
+
+menu_choose.o: menu_choose.c
+	$(CC) -c menu_choose.c -o menu_choose.o $(CFLAGS)
+
+match.o: match.c
+	$(CC) -c match.c -o match.o $(CFLAGS)

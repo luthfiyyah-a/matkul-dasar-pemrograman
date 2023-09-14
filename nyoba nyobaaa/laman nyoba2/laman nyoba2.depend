@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1603120359 source:c:\users\upi\documents\kuliah\dasar pemrograman\tugas\bismillah chapter 3\laman nyoba2\main.c
+	<stdio.h>
+
+1608283513 source:d:\kuliah\dasar pemrograman\nyoba nyobaaa\laman nyoba2\main.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+

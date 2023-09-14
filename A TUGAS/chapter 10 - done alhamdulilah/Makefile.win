@@ -1,0 +1,52 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o scan_complex.o add_complex.o substract_complex.o print_complex.o multiply_complex.o divide_complex.o abs_complex.o dokumentasi.o
+LINKOBJ  = main.o scan_complex.o add_complex.o substract_complex.o print_complex.o multiply_complex.o divide_complex.o abs_complex.o dokumentasi.o
+LIBS     = -L"D:/Downloads/Dev-Cpp/MinGW64/lib" -L"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = operasi_bil.kompleks.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+scan_complex.o: scan_complex.c
+	$(CC) -c scan_complex.c -o scan_complex.o $(CFLAGS)
+
+add_complex.o: add_complex.c
+	$(CC) -c add_complex.c -o add_complex.o $(CFLAGS)
+
+substract_complex.o: substract_complex.c
+	$(CC) -c substract_complex.c -o substract_complex.o $(CFLAGS)
+
+print_complex.o: print_complex.c
+	$(CC) -c print_complex.c -o print_complex.o $(CFLAGS)
+
+multiply_complex.o: multiply_complex.c
+	$(CC) -c multiply_complex.c -o multiply_complex.o $(CFLAGS)
+
+divide_complex.o: divide_complex.c
+	$(CC) -c divide_complex.c -o divide_complex.o $(CFLAGS)
+
+abs_complex.o: abs_complex.c
+	$(CC) -c abs_complex.c -o abs_complex.o $(CFLAGS)
+
+dokumentasi.o: dokumentasi.c
+	$(CC) -c dokumentasi.c -o dokumentasi.o $(CFLAGS)

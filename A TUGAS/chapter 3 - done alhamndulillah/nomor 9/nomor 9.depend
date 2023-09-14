@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1603014854 source:c:\users\upi\documents\kuliah\dasar pemrograman\tugas\bismillah chapter 3\nomor 9\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
